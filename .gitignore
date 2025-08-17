@@ -4,4 +4,5 @@
 dataset/
 mlruns/
 **/mlruns/
+**/mlruns
 artifacts/

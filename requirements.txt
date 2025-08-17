@@ -1,2 +1,15 @@
 jupyter
+
 mlflow
+
+pandas
+pandas-stubs
+
+requests
+
+tqdm
+tqdm-stubs
+
+tfds-nightly
+
+tensorflow

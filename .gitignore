@@ -2,3 +2,6 @@
 .~lock*
 *.swp
 dataset/
+mlruns/
+**/mlruns/
+artifacts/

@@ -8,5 +8,5 @@ test -f dataset/archive.zip || {
   }
 }
 test -f dataset/archive || {
-  unzip dataset/archive.zip -d dataset/archive.tmp && mv -nv dataset/archive.zip dataset/archive
+  unzip dataset/archive.zip -d dataset/archive.tmp && mv -nv dataset/archive.tmp dataset/archive
 }

@@ -13,3 +13,5 @@ tqdm-stubs
 tfds-nightly
 
 tensorflow
+
+seaborn

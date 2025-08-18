@@ -96,6 +96,7 @@ MarkupSafe==3.0.2
 matplotlib==3.10.5
 matplotlib-inline==0.1.7
 mdurl==0.1.2
+missingno==0.5.2
 mistune==3.1.3
 ml_dtypes==0.5.3
 mlflow==3.2.0

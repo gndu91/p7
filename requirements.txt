@@ -22,3 +22,5 @@ numpy
 scikit-learn
 
 matplotlib
+
+missingno

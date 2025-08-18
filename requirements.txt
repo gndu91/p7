@@ -16,3 +16,9 @@ tfds-nightly
 tensorflow
 
 seaborn
+
+numpy
+
+scikit-learn
+
+matplotlib

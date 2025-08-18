@@ -1,8 +1,6 @@
+# This relates to pycharm's projects settings
 .idea/
+
+# Those are the documents viewer's lock files
 .~lock*
 *.swp
-dataset/
-mlruns/
-**/mlruns/
-**/mlruns
-artifacts/

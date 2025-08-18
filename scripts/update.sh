@@ -9,6 +9,7 @@ source "$(pwd).13.env/bin/activate"
 echo "Activating environment...done"
 
 echo "Updating..."
+pip install -U pip
 pip install -Ur requirements.txt
 echo "Updating...done"
 

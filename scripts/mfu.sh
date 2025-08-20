@@ -16,7 +16,6 @@ mlflow ui \
 	--host 127.65.12.247 \
 	--port 50222 \
 	--backend-store-uri "$(pwd).mlflow" \
-	--backend-store-uri "$(pwd).mlflow" \
 	--workers 32 \
 	--expose-prometheus "$(pwd).prometheus" \
 	--dev 

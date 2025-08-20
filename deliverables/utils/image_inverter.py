@@ -9,6 +9,7 @@ from pathlib import Path
 from time import time_ns
 from typing import Tuple, List, Optional, IO, Any
 
+import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
 from matplotlib.figure import Figure
@@ -363,5 +364,7 @@ def invert_figure(fig: Figure, foreground=FOREGROUND_COLOR, background=BACKGROUN
 type FileType =  str | bytes | PathLike[str] | PathLike[bytes] | IO[bytes]
 
 # noinspection PyShadowingBuiltins
-def save(fig: Figure, fp: FileType, format: str | None = None, **params: Any) -> None:
+def save(fig: Figure, fp: FileType, close: bool = True, format: str | None = None, **params: Any) -> None:
     invert_figure(fig).save(fp, format, **params)
+    if close:
+        plt.close()

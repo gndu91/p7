@@ -1,22 +1,33 @@
-# .github/workflows/deploy.yml
-
-name: Simple Example
+name: Deploy API to Render
 
 on:
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   push:
     branches: [ "master" ]
 
 jobs:
-  example_job:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Succeeding Step
-        run: echo "Hello World! This step will be green."
-      - name: Failing Step
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13.4'
+
+      - name: Install dependencies
         run: |
-          echo "Hello World! This step will be red."
-          exit 1
-      - name: This step will be skipped
-        run: echo "You won't see this message because the previous step failed."
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest
+
+      # - name: Run unit tests
+#         run: |
+#           pytest deliverables/api/tests/
+
+      - name: Trigger Render Deployment
+        if: success()
+        run: |
+          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}

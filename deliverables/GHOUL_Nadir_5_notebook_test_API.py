@@ -130,15 +130,10 @@ if st.sidebar.button("Obtenir la prédiction"):
 
         client_data = test_df[test_df['SK_ID_CURR'] == selected_id]
         
-        # --- !! SECTION MASSIVEMENT SIMPLIFIÉE !! ---
-        # No more complex cleaning. The API handles it now.
-        # We just convert the row to a dictionary and replace Pandas' NaN
-        # with None, which is JSON's 'null'. That's it.
         payload = client_data.iloc[0].to_dict()
         payload_cleaned = {k: (None if pd.isna(v) else v) for k, v in payload.items()}
-        # --- !! FIN DE LA SECTION SIMPLIFIÉE !! ---
 
-        with st.expander("Voir les données brutes envoyées à l'API (maintenant bien plus simple)"):
+        with st.expander("Voir les données brutes envoyées à l'API"):
             st.json(payload_cleaned)
 
         with st.spinner("Prédiction en cours..."):

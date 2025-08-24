@@ -1,0 +1,22 @@
+# .github/workflows/deploy.yml
+
+name: Simple Example
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Succeeding Step
+        run: echo "Hello World! This step will be green."
+      - name: Failing Step
+        run: |
+          echo "Hello World! This step will be red."
+          exit 1
+      - name: This step will be skipped
+        run: echo "You won't see this message because the previous step failed."

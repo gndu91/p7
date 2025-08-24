@@ -62,6 +62,8 @@ async def predict(client_data: ClientDataModel):
     # The .model_dump() will contain None for missing values. Pandas converts these
     # to NaN, which is exactly what the scikit-learn pipeline expects.
     # client_df = pd.DataFrame([client_data.model_dump()])
+    from random import seed
+    seed(client_data.model_dump().get('SK_ID_CURR', 'unknown'))
     target = client_data.model_dump().get('TARGET', choice((1, 0)))
     probability = random() * BUSINESS_THRESHOLD if not target else (
         BUSINESS_THRESHOLD + (random() * (1 - BUSINESS_THRESHOLD)))
